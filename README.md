@@ -1,5 +1,7 @@
 # go-http-wrapper
 
+Easy use go http request
+
 ## How to use
 
 ### 1.  Create an target 
