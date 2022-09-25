@@ -2,6 +2,10 @@
 
 Easy use go http request
 
+## Install
+```bash 
+go get github.com/9bany/go-http-wrapper 
+```
 ## How to use
 
 ### 1.  Create an target 
@@ -29,13 +33,14 @@ func (target *exampleTarget) GetHeader() Header {
 ### Use target with request wrapper
 
 ```go
+import wrapper "github.com/9bany/go-http-wrapper"
 // Data structure mapping from json response
 type Data struct {
     Msg string `json:"data"`
 }
 
 target := &exampleTarget{}
-requestor := NewRequest[Data](target)
+requestor := wrapper.NewRequest[Data](target)
 
 resp, err := requestor.Execute(context.Background())
 fmt.Println(resp)
