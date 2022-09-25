@@ -2,6 +2,9 @@
 
 Easy use go http request
 
+## Required
+
+- [go1.19.^](https://go.dev/dl/)
 ## Install
 ```bash 
 go get github.com/9bany/go-http-wrapper 
