@@ -13,7 +13,9 @@ import (
 	"strings"
 )
 
-type RequestProtocol interface{}
+type RequestProtocol[DataResponseType any] interface {
+	Execute(ctx context.Context) (*Response[DataResponseType], error)
+}
 
 type request[T any] struct {
 	target    Target
@@ -21,7 +23,7 @@ type request[T any] struct {
 	debug     bool
 }
 
-func NewRequest[DataResponseType any](target Target) RequestProtocol {
+func NewRequest[DataResponseType any](target Target) RequestProtocol[DataResponseType] {
 	transport := &http.Transport{
 		Proxy:           http.ProxyFromEnvironment,
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
